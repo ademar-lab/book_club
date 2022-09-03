@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{{ book.title }}</h2>
+
+    <form action="{% url 'home:new_chapter' book.id %}", method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Add chapter</button>
+    </form>
+{% endblock %}

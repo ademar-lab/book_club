@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <p>In this website you will be able to share your thougts and opinions on the books you read.</p>
+
+    <a href="{% url 'home:new_book' %}">Add a new book</a>
+
+    {% if books %}
+        <ul>
+        {% for book in books %}
+            <li><a href="{% url 'home:book' book.id %}">{{ book }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No books hve been added yet.</p>
+    {% endif %}
+
+{% endblock %}

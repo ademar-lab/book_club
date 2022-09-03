@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h2>{{ book.title }}</h2>
+
+    <a href="{% url 'home:new_chapter' book.id %}">Add a chapter.</a>
+
+    {% if not chapter %}
+        {% for chapter in chapters %}
+            <h3>{{ chapter.subtitle }}</h3>
+            <p>{{ chapter.text }}</p>
+        {% endfor %}
+    {% else %}
+        <p>No chapters have been added yet.</p>
+    {% endif %}
+
+{% endblock content %}

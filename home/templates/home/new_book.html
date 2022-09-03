@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="{% url 'home:new_book' %}", method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button name="submit">Add Book</button>
+    </form>
+{% endblock %}
