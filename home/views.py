@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from . import forms
 from . import models
 
@@ -40,3 +40,13 @@ def new_chapter(request, book_id):
         
     context = {'form':form, 'book':book}
     return render(request, 'home/new_chapter.html', context)
+
+def delete_book(request, book_id):
+    book = get_object_or_404(models.Book, id=book_id)
+
+    if request.method == 'POST':
+        book.delete()
+        return redirect('/')
+    
+    context = {'book':book}
+    return render(request, 'home/delete_book.html', context)

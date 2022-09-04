@@ -9,7 +9,11 @@
     {% if books %}
         <ul>
         {% for book in books %}
-            <li><a href="{% url 'home:book' book.id %}">{{ book }}</a></li>
+            <li>
+                <a href="{% url 'home:book' book.id %}">{{ book }}</a>
+                (<a href="{% url 'home:delete_book' book.id %}">Delete</a>)
+                <br>Created: {{ book.date_added }}
+            </li>
         {% endfor %}
         </ul>
     {% else %}

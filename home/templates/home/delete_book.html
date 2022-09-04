@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{{ book.title }}</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+        Are you sure you want to DELETE this book?
+        <br><button name="submit">Yes</button>
+        <br><a href="/">Cancel</a>
+    </form>
+{% endblock %}
