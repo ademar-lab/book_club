@@ -2,7 +2,7 @@
 
 {% block content %}
 
-    <p>In this website you will be able to share your thougts and opinions on the books you read.</p>
+    <p>In this website you will be able to share your thoughts and opinions on the books you read.</p>
 
     <a href="{% url 'home:new_book' %}">Add a new book</a>
 
@@ -11,13 +11,14 @@
         {% for book in books %}
             <li>
                 <a href="{% url 'home:book' book.id %}">{{ book }}</a>
-                (<a href="{% url 'home:delete_book' book.id %}">Delete</a>)
+                (<a href="{% url 'home:edit_book' book.id %}">Update</a> - <a href="{% url 'home:delete_book' book.id %}">Delete</a>)
                 <br>Created: {{ book.date_added }}
+
             </li>
         {% endfor %}
         </ul>
     {% else %}
-        <p>No books hve been added yet.</p>
+        <p>No books have been added yet.</p>
     {% endif %}
 
 {% endblock %}

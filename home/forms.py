@@ -9,4 +9,4 @@ class BookForm(ModelForm):
 class ChapterForm(ModelForm):
     class Meta():
         model = Chapter
-        fields = ['subtitle', 'text', 'book']
+        fields = ['subtitle', 'text']

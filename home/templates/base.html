@@ -1,3 +1,8 @@
 <a href="{% url 'home:index' %}"><h1>Book Club</h1></a>
 
+{% if user.is_authenticated %}
+    Hello {{ user.username }}! - <a href="{% url 'users:logout' %}">Log out</a>
+{% else %}
+    <a href="{% url 'users:login' %}">Log in</a> - <a href="{% url 'users:register' %}">Register</a>
+{% endif %}
 {% block content %} {% endblock %}

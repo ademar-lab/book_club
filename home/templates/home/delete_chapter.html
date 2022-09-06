@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="{% url 'home:delete_chapter' chapter.id book.id %}" method="POST">
+        {% csrf_token %}
+        <p>Are you sure you want to DELETE this chapter?</p>
+        <button name="submit">Yes</button>
+        <a href="{% url 'home:book' book.id %}">Cancel</a>
+    </form>
+{% endblock %}

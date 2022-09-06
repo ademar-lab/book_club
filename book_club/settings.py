@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'home.apps.HomeConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# The URL to redirect to after logout
+# https://docs.djangoproject.com/en/4.1/topics/auth/default/#module-django.contrib.auth.views
+LOGOUT_REDIRECT_URL = '/'
+
+LOGIN_URL = '/users/login'

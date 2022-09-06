@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="{% url 'home:edit_book' book.id %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input name="next" value="{% url 'home:index' %}" type="hidden"/>
+        <button name="submit">Submit</button>
+    </form>
+{% endblock %}

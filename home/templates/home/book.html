@@ -7,10 +7,18 @@
     <a href="{% url 'home:new_chapter' book.id %}">Add a chapter.</a>
 
     {% if not chapter %}
+        <ul>
         {% for chapter in chapters %}
-            <h3>{{ chapter.subtitle }}</h3>
-            <p>{{ chapter.text }}</p>
+            <li>
+                <h3>{{ chapter.subtitle }}</h3> 
+                <a href="{% url 'home:delete_chapter' chapter.id book.id %}">Delete</a> -
+                <a href="{% url 'home:edit_chapter' chapter.id book.id %}">Update</a>
+                <p>
+                    {{ chapter.text }}
+                </p>
+            </li>
         {% endfor %}
+        </ul>
     {% else %}
         <p>No chapters have been added yet.</p>
     {% endif %}
